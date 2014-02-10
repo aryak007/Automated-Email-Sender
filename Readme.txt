@@ -1,7 +1,12 @@
-Python Scripts which will automate the task of sending Emails with just two mouse clicks, i.e sending emails without
-the hassle of logging in, attaching files etc.
+Python Scripts which will automate the task of sending Emails with just two mouse clicks, i.e sending emails without the hassle of logging in, attaching files etc.
+
+
+
 
 Disclaimer - These scripts will only work for python 2.7.x and not for python 3.x
+
+
+
 
 Procedure :
 
@@ -18,10 +23,13 @@ HOW TO SEND EMAIL
 
 Edit CreateZipAndSendMail.py with your gmail Account details 
 
-Select one / multiple files by pressing ctrl and sending it to SreateFolder.cmd 
+Select one / multiple (by pressing ctrl) file(s) and send it to CreateFolder.cmd 
 
-After having done that, you would be able to see a folder named "MailingFolder" present in your current directory
+After having done that, you would be able to see a folder named "MailingFolder" present in your current directory (from where the files are selected and are sent to CreateFolder.cmd)
 
 Right-Click on the "MailingFolder" and send it to Create-Zip-And-Send-Mail.cmd 
 
-Wait for a few seconds and .... Done!!! Your mail has been delivered to the specified recipients
+Wait for a few seconds and .... DONE!!! Your mail has been delivered to the specified recipients 
+
+
+
