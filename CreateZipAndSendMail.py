@@ -19,12 +19,12 @@ def createZip(path):
 
 #Sending attachment in zip format to the specified list of recipients
 def sendEmail(file_name,path):
-	my_email = 'aryak12345@gmail.com'
-	my_passw = '64321Helios'
-	#recipients = ['sabyasengupta259@gmail.com', 'aryak.sengupta@gmail.com','anirbandey2010@gmail.com','anirbanavi1993@gmail.com','anshumalikumar9@gmail.com','arupam.sengupta@gmail.com','binghosh@gmail.com','kinjalbasu100@gmail.com','koustuvsinha@gmail.com','ppppallab@gmail.com','src0108@gmail.com','subhodip.kumar@gmail.com']
-	recipients = ['sabyasengupta259@gmail.com', 'aryak.sengupta@gmail.com']
+	my_email = '<Enter Email(or gmail) address of Sender here>'
+	my_passw = '<Enter Password Here>'
+	
+	recipients = ['joe@gmail.com', 'alan@gmail.com'] #Specify yout Recipient List here
 	subject = 'Sent from smtplib'
-	message = 'This is the body of the email.'
+	message = 'Type your message here'
 
 	# build the message
 	msg = email.MIMEMultipart.MIMEMultipart()
