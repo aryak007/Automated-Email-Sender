@@ -3,7 +3,7 @@ import shutil
 import sys
 
 def createFolderFunction(path):
-	print path
+	#print path
 	FolderPath = os.path.dirname(path)
 	newPath = FolderPath + "\MailingFolder"
 	if not os.path.isdir(newPath):
