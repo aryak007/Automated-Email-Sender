@@ -1,21 +1,40 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+from bs4 import BeautifulSoup
+import urllib2
 import os
-import shutil
-import sys
 
-def createFolderFunction(path):
-	#print path
-	FolderPath = os.path.dirname(path)
-	newPath = FolderPath + "\MailingFolder"
-	if not os.path.isdir(newPath):
-		os.mkdir(newPath)
-	if(os.path.isdir(path) and os.path.isfile(newPath+"\\" +os.path.basename(path)) == False):
-		shutil.copytree(path,newPath +"\\" +os.path.basename(path))
-		FolderName = os.path.basename(path)
-		#print "%s is copied" %FolderName
 
-	if(os.path.isfile(path) and os.path.isfile(newPath+"\\" +os.path.basename(path)) == False):
-		FileName = os.path.basename(path)
-		shutil.copy(path,newPath)
-		#print "%s is copied" %FileName
-path = sys.argv[1]
-createFolderFunction(path)
+AllTags = ['Greedy-Algorithm']
+
+path = 'c:\users\c_thv\Desktop\GfG\\'
+
+
+def ExtractMainLinks(AllTags,path):
+	for i in AllTags:
+		newpath = path + i
+		if not os.path.isdir(newPath):
+                        os.mkdir(newPath)
+		url = "http://www.geeksforgeeks.org/tag/" + i +"/"
+		data = urllib2.urlopen(url).read()
+		soup = BeautifulSoup(data,"html.parser")
+		allLinks = soup.findAll("h2",class_="entry-title")
+		listofLinks = []
+		for link in allLinks:
+			mainLink = str(link.findAll("a")[0]).split("<a href=")[1].split('rel="bookmark"')[0].strip('"').split('"')[0]
+			listofLinks.append([mainLink,mainLink.split('/')[3]])
+		Extract_And_Save_Page_Data(listofLinks)
+		
+
+
+def Extract_And_Save_Page_Data(listofLinks):
+	No = 0
+	for item in listofLinks:
+		pageData = urllib2.urlopen(item[0]).read()
+		filePath = newPath + "\\" + item[1]+".html"
+		No = No +1
+		with open(filePath,"wb") as f:
+			f.write(str(pageData))
+
+ExtractMainLinks(AllTags,path)
